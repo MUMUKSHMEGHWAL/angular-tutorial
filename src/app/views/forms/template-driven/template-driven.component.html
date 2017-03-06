@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Template Driven Form</h2>
+    <p>Here we will create a basic login form</p>
+    <form>
+        <div class="form-group">
+            <label for="ntId">NT ID</label>
+            <input type="text" class="form-control" id="ntId" required>
+        </div>
+        <div class="form-group">
+            <label for="passwd">Password</label>
+            <input type="password" class="form-control" id="passwd">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <hr>
+    <p>Above we have created a basic form but on clicking of submmit button there is no action which is to be performed, so now we will add a funciton which will be called on clicking of our submit button. Now we will bind form's "ngSubmit"" event property
+        to the our form component's function (here we are binding with onSubmit() funciton which is writtern in our component.ts file). In form tag write : (ngSubmit)="onSubmit()". There is alot you can do with your form. till now we are done with the
+        basic. you can use ngModel attribute to create data bindings for reading and writing input-control values. it can be used in 3 ways : 1) simple ngModel attribute 2) [ngModel] : model to template binding 3) (ngModel) : template to model binding
+        For 2 way binding, you can write [(ngModel)]="". this will help you in both reading and writing. Below is the code with : ngSubmit and ngModel.
+    </p>
+
+    <h3>Login Form</h3>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <div class="form-group">
+            <label for="ntId">NT ID</label>
+            <input type="text" class="form-control" id="ntId" required ngModel name="name" #name="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="passwd">Password</label>
+            <input type="password" class="form-control" id="passwd" ngModel name="password">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>

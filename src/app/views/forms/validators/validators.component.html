@@ -1,0 +1,46 @@
+<div>
+    <h2>Validation with form</h2>
+    <p>
+        First exapmle is validation with template driven form.<br> Here we have used classes applied by ngMdel on inpute field. In both template driven or model driven form, we can make use of this classes and show ouyr error messages. <br>Below are the
+        classe : <br> 1) <strong>ng-valid,ng-invalid</strong> : whatever validation you have put on your input field, if that is fulfilled by your input field then this ng-valid class will be applied else ng-invalid<br> 2)<strong>ng-dirty,ng-pristine </strong>:
+        Once a value is entered, then ng-dirty class is added. Now if you remove value from your input field and think that class will be changed again to ng-pristine but it wont happen. your input field is now dirty <br> 3)<strong>ng-touched,ng-untouched </strong>        : once input field is visited, then your field is touched so ng-touched class is applied
+        <br>
+    </p>
+    <form>
+        <div class="form-group">
+            <label for="ntId">NT ID</label>
+            <input type="text" class="form-control" id="ntId" required ngModel name="name" #name="ngModel">
+            <div [hidden]=" name.pristine || (name.dirty && name.valid) " class="alert alert-danger">
+                Name is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="passwd">Password</label>
+            <input type="password" class="form-control" id="passwd" ngModel name="password">
+        </div>
+    </form>
+    <div>
+        <p>Here is output of validation on model driven form<br>It also uses same classes but logic is written in ts file.</p>
+        <form [formGroup]="loginForm">
+            <div class="form-group">
+                <label class="center-block">Name:
+                   <input type="text" class="form-control" formControlName="name">
+              </label>
+                <div *ngIf="formErrors.name" class="alert alert-danger">
+                    {{ formErrors.name }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="center-block">password:
+      <input type="password" class="form-control" formControlName="password">
+    </label>
+                <div *ngIf="formErrors.password" class="alert alert-danger">
+                    {{ formErrors.password }}
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="login">
+            </div>
+        </form>
+    </div>
+</div>
