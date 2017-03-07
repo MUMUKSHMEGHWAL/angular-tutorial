@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./angular.component.scss']
 })
 export class AngularComponent implements OnInit {
-  title : String='hel';
+  title : String ='';
+  temp : number;
   constructor() { }
 
   ngOnInit() {
   }
   getVal(e,heading){
     this.title = heading;
+  }
+  getTemp(e,temp){
+    this.temp  = temp;
   }
 }

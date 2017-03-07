@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TempConverterPipe implements PipeTransform {
 
   transform(value: any, args?: String): any {
-    console.log(value,args[0]);
     let temp : number;
     if(value && !isNaN(value)){
       if(args[0]==='celsius' || args[0]==='c' ) {
@@ -16,7 +15,7 @@ export class TempConverterPipe implements PipeTransform {
         return ((value*9)/5)+32 + 'F';
       }
     }
-    
+    return "please Enter valid data";
   }
 
 }

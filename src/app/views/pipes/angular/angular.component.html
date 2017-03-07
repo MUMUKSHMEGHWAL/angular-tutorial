@@ -1,5 +1,24 @@
-<div>
-    Enter title for your page : <input type="text" #titleh>
-    <input type="button" value="Enter" (click)="getVal($event, titleh.value)">
-    <h1>{{title | reverse}}</h1>
+<div class="container-fluid">
+    <div >
+        <h1>{{title | reverse}}</h1>
+        <div class="form-group">
+            Enter title for your page anf click on display Title button : 
+            <input type="text" class= "form-control" [(ngModel)]="title" #titleh>
+        </div>
+    </div>
+    <br>
+    <p>Below is example of pipe with 1 argument. Here i am passing 'c'' or 'f' to convert temperature into C or F.
+    </p>
+    <br>
+    <div>
+        <div class="form-group">
+            Enter Temprature : <input class="form-control" type="text" #tempc>
+        </div>
+        <input type="button" class="btn btn-primary" value="Convert" (click)="getTemp($event,tempc.value)">
+        <div *ngIf='temp' class="panel panel-default">
+            <div class="panel-body">
+            <strong> Fahrenheit </strong> : <span>{{temp | tempConverter:'f'}}</span> <strong> celsius</strong> : <span>{{temp | tempConverter:'c'}}</span>
+            </div>
+        </div>
+    </div>
 </div>

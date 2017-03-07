@@ -7,12 +7,13 @@ import { PipesRoutingModule } from './pipes-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AngularComponent } from './angular/angular.component';
 import { ReversePipe } from './angular/reverse.pipe';
+import { TempConverterPipe } from './angular/temp-converter.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     PipesRoutingModule,SharedModule
   ],
-  declarations: [HomeComponent, AngularComponent,ReversePipe]
+  declarations: [HomeComponent, AngularComponent,ReversePipe, TempConverterPipe]
 })
 export class PipesModule { }
