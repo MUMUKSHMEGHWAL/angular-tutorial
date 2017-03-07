@@ -1,0 +1,5 @@
+<div>
+    Enter title for your page : <input type="text" #titleh>
+    <input type="button" value="Enter" (click)="getVal($event, titleh.value)">
+    <h1>{{title | reverse}}</h1>
+</div>
